@@ -110,7 +110,6 @@ const TESTIMONIALS = [
 const TestimonialSlider = () => {
   return (
     <div className="relative">
-      {/* Mobile View: Scroll Snap Slider - Clean, no buttons */}
       <div className="md:hidden flex overflow-x-auto gap-4 snap-x snap-mandatory pb-6 px-1 hide-scrollbar -mx-4">
         {TESTIMONIALS.map((t) => (
             <div key={t.id} className="min-w-[85vw] ml-4 snap-center bg-white p-8 rounded-2xl shadow-sm border border-stone-100 flex flex-col">
@@ -124,10 +123,9 @@ const TestimonialSlider = () => {
                 </div>
             </div>
         ))}
-        <div className="w-4 shrink-0"></div> {/* Spacer */}
+        <div className="w-4 shrink-0"></div>
       </div>
 
-      {/* Desktop View: Grid */}
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {TESTIMONIALS.map((t) => (
             <div key={t.id} className="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
@@ -146,11 +144,8 @@ const TestimonialSlider = () => {
   );
 };
 
-// --- Pages ---
-
 const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
   <div className="fade-in">
-    {/* Hero Section */}
     <div className="relative bg-brand-50 py-24 md:py-32 px-6 lg:px-24 flex flex-col items-center text-center">
       <div className="max-w-3xl z-10">
         <span className="text-brand-600 font-bold tracking-wider text-sm uppercase mb-4 block">ቻLu Assefa</span>
@@ -170,12 +165,10 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
           </Button>
         </div>
       </div>
-      {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-brand-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-stone-200 rounded-full blur-3xl opacity-50 translate-y-1/2 -translate-x-1/4"></div>
     </div>
 
-    {/* Integrated About Section */}
     <Section className="bg-white">
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="w-full md:w-1/3 aspect-[3/4] bg-stone-300 rounded-2xl overflow-hidden shadow-lg relative">
@@ -220,12 +213,10 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => (
               </ul>
             </div>
           </div>
-          {/* Removed Read Full Biography button */}
         </div>
       </div>
     </Section>
 
-    {/* Testimonials Section */}
     <Section className="bg-stone-100">
         <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -304,7 +295,6 @@ const CourseCard = ({
     recommended?: boolean;
 }) => (
     <div className={`group relative bg-white rounded-2xl p-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col h-full ${recommended ? 'ring-2 ring-brand-500 shadow-lg' : 'shadow-sm border border-stone-100'}`}>
-        {/* Optional "Recommended" badge */}
         {recommended && (
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest z-20 shadow-sm">
                 Most Popular
@@ -312,7 +302,6 @@ const CourseCard = ({
         )}
         
         <div className="bg-white rounded-xl p-6 flex flex-col h-full relative overflow-hidden z-10">
-            {/* Background decorative blob */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-stone-50 rounded-bl-full -mr-10 -mt-10 group-hover:bg-brand-50 transition-colors duration-500"></div>
 
             <div className="relative z-10 mb-6 flex justify-between items-start">
@@ -342,7 +331,6 @@ const CourseCard = ({
 
 const ClassesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
   <div className="fade-in bg-stone-50">
-    {/* Refined Header - darker, more professional */}
     <div className="bg-[#1c2423] text-white py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-800 via-stone-900 to-transparent"></div>
       <button onClick={() => setPage('home')} className="absolute top-8 left-6 md:left-12 z-20 text-white/60 hover:text-white flex items-center gap-2 transition-colors">
@@ -358,7 +346,6 @@ const ClassesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
     </div>
 
     <Section>
-        {/* Free Training Banner - More authentic Telegram style */}
         <div className="relative overflow-hidden bg-white rounded-3xl border border-stone-200 p-8 md:p-12 mb-20 shadow-sm">
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-[#229ED9]/10 rounded-full blur-3xl"></div>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative z-10">
@@ -462,7 +449,6 @@ const ServicesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
 
     <Section>
       <div className="max-w-5xl mx-auto">
-        {/* Featured Service: Phone Counseling */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-100 mb-16 flex flex-col md:flex-row">
             <div className="md:w-2/5 bg-brand-800 text-white p-10 flex flex-col justify-between relative overflow-hidden">
                 <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-brand-700 rounded-full opacity-50"></div>
@@ -511,9 +497,7 @@ const ServicesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
             </div>
         </div>
 
-        {/* Secondary Services Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-            {/* Group Sessions */}
             <div className="bg-white p-8 rounded-xl border border-stone-200 hover:border-brand-300 hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-6 text-stone-600">
                     <Users className="w-6 h-6" />
@@ -528,7 +512,6 @@ const ServicesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
                 <Button variant="outline" onClick={() => setPage('contact')} className="w-full">Inquire About Groups</Button>
             </div>
 
-            {/* Evaluation Tools */}
             <div className="bg-white p-8 rounded-xl border border-stone-200 hover:border-brand-300 hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-6 text-stone-600">
                     <FileText className="w-6 h-6" />
@@ -561,7 +544,6 @@ const ResourcesPage = ({ setPage }: { setPage: (p: Page) => void }) => {
         </p>
         </Section>
 
-        {/* YouTube Section */}
         <Section className="bg-stone-900 text-white">
             <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
                 <div>
@@ -586,14 +568,12 @@ const ResourcesPage = ({ setPage }: { setPage: (p: Page) => void }) => {
             </div>
         </Section>
 
-        {/* Books Section */}
         <Section className="bg-white">
         <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-serif font-bold text-brand-800 mb-8 border-b border-stone-100 pb-4 flex items-center gap-2">
                 <BookOpen className="w-6 h-6" /> Free Books
             </h2>
             <div className="grid md:grid-cols-1 gap-8">
-                {/* Book 1 */}
                 <div className="bg-brand-50 border border-brand-100 rounded-xl p-8 flex flex-col sm:flex-row gap-8 items-start shadow-sm hover:shadow-md transition-shadow">
                     <div className="w-full sm:w-1/3 aspect-[2/3] bg-stone-300 rounded shadow-md overflow-hidden shrink-0">
                         <img 
@@ -706,8 +686,6 @@ const ContactPage = ({ setPage }: { setPage: (p: Page) => void }) => (
   </div>
 );
 
-// --- Layout ---
-
 const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
   <footer className="bg-stone-900 text-stone-400 py-16 px-6 border-t border-stone-800">
     <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
@@ -813,7 +791,6 @@ const Navbar = ({
           ቻLu Assefa
         </div>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
@@ -830,7 +807,6 @@ const Navbar = ({
           ))}
         </div>
 
-        {/* Mobile Toggle */}
         <button 
           className="md:hidden text-stone-600"
           onClick={() => setIsOpen(!isOpen)}
@@ -839,7 +815,6 @@ const Navbar = ({
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-stone-100 shadow-lg py-4 px-6 flex flex-col gap-4 animate-in slide-in-from-top-2">
           {navLinks.map((link) => (
@@ -865,7 +840,6 @@ const Navbar = ({
 const App = () => {
   const [page, setPage] = useState<Page>('home');
   
-  // Scroll to top on page change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [page]);
