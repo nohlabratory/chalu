@@ -4,10 +4,12 @@ import { Page } from './types';
 
 export const Navbar = ({ 
   page, 
-  setPage
+  setPage,
+  onShowJoinClasses
 }: { 
   page: Page; 
   setPage: (p: Page) => void;
+  onShowJoinClasses: () => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -27,6 +29,7 @@ export const Navbar = ({
   const navLinks: { label: string; value: Page }[] = [
     { label: 'Home', value: 'home' },
     { label: 'About', value: 'about' },
+    { label: 'Blog', value: 'blog' },
     { label: 'Classes', value: 'classes' },
     { label: 'Services', value: 'services' },
     { label: 'Resources', value: 'resources' },
@@ -52,7 +55,6 @@ export const Navbar = ({
       setPasswordError(false);
     } else {
       setPasswordError(true);
-      // Brief shake effect or just text error
     }
   };
 
@@ -80,6 +82,11 @@ export const Navbar = ({
     }
   };
 
+  const handleNavClick = (value: Page) => {
+    setPage(value);
+    setIsOpen(false);
+  };
+
   return (
     <>
       <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
@@ -99,7 +106,7 @@ export const Navbar = ({
               <button
                 key={link.value}
                 type="button"
-                onClick={() => setPage(link.value)}
+                onClick={() => handleNavClick(link.value)}
                 className={`text-sm font-medium transition-all duration-300 relative ${
                   page === link.value 
                     ? 'text-brand-600' 
@@ -140,10 +147,7 @@ export const Navbar = ({
               <button
                 key={link.value}
                 type="button"
-                onClick={() => {
-                  setPage(link.value);
-                  setIsOpen(false);
-                }}
+                onClick={() => handleNavClick(link.value)}
                 className={`text-left py-4 border-b border-stone-50 font-semibold tracking-wide ${
                   page === link.value ? 'text-brand-600' : 'text-stone-600'
                 }`}
@@ -165,7 +169,7 @@ export const Navbar = ({
         )}
       </nav>
 
-      {/* Custom Password Modal - THIS WILL NOT BE BLOCKED BY BROWSER */}
+      {/* Password Modal */}
       {showPasswordModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-stone-900/60 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setShowPasswordModal(false)}></div>
@@ -190,7 +194,7 @@ export const Navbar = ({
                   placeholder="••••••••"
                 />
                 {passwordError && (
-                  <p className="text-red-500 text-[10px] font-bold uppercase mt-2 text-center animate-in fade-in">Incorrect Password. Please try again.</p>
+                  <p className="text-red-500 text-[10px] font-bold uppercase mt-2 text-center animate-in fade-in">Incorrect Password.</p>
                 )}
               </div>
               
@@ -202,9 +206,9 @@ export const Navbar = ({
                   Enter Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
-                  type="button"
+                  type="button" 
                   onClick={() => setShowPasswordModal(false)}
-                  className="w-full text-stone-400 hover:text-stone-600 text-xs font-bold py-2 transition-colors"
+                  className="w-full py-2 text-[10px] font-black text-stone-300 hover:text-stone-500 uppercase tracking-widest transition-colors"
                 >
                   Cancel
                 </button>

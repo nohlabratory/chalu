@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Send, Youtube } from 'lucide-react';
 import { Page } from './types';
@@ -32,6 +31,11 @@ export const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
         </div>
       </div>
     </div>
-    <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-stone-800 text-xs text-stone-500 text-center">&copy; {new Date().getFullYear()} ቻLu Assefa Psychology. All rights reserved.</div>
+    <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-stone-800 text-xs text-stone-500 text-center">
+      <div>&copy; {new Date().getFullYear()} ቻLu Assefa Psychology. All rights reserved.</div>
+      <div className="mt-4 text-stone-600 text-[10px] font-black uppercase tracking-[0.2em]">
+        Website made by <a href="https://t.me/utoptechnology" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand-300 underline decoration-stone-800/50 transition-colors">Utop technology</a>
+      </div>
+    </div>
   </footer>
 );

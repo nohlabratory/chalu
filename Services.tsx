@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowLeft, Phone, Star, CheckCircle, Users, Clock, Lightbulb, Brain } from 'lucide-react';
+import { ArrowLeft, Phone, Star, CheckCircle, Users, Send } from 'lucide-react';
 import { Page } from './types';
 import { Button, Section, Heading } from './Common';
 
@@ -18,43 +17,75 @@ export const ServicesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
     </div>
 
     <Section>
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-100 mb-16 flex flex-col md:flex-row">
+      <div className="max-w-5xl mx-auto space-y-16">
+        {/* Private Phone Counseling Card */}
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-100 flex flex-col md:flex-row min-h-[400px]">
             <div className="md:w-2/5 bg-brand-800 text-white p-10 flex flex-col justify-between relative overflow-hidden">
                 <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-brand-700 rounded-full opacity-50"></div>
                 <div className="relative z-10">
-                    <div className="w-12 h-12 bg-brand-700 rounded-lg flex items-center justify-center mb-6"><Phone className="w-6 h-6 text-accent-300" strokeWidth={1.5} /></div>
+                    <div className="w-14 h-14 bg-brand-700 rounded-xl flex items-center justify-center mb-6 shadow-inner"><Phone className="w-7 h-7 text-accent-300" strokeWidth={1.5} /></div>
                     <h3 className="text-3xl font-serif font-bold mb-2">Private Phone Counseling</h3>
-                    <p className="text-brand-200 mb-8">Direct, confidential, and professional support from anywhere.</p>
+                    <p className="text-brand-200 mb-8 font-medium">Direct, confidential, and professional support from anywhere.</p>
                 </div>
-                <div className="relative z-10"><div className="text-4xl font-bold mb-1 text-accent-200">1,980 ETB</div><div className="text-brand-300 text-sm">per session</div></div>
+                <div className="relative z-10">
+                  <div className="text-xl font-bold mb-2 text-stone-300">Contact: 0932229193</div>
+                  <div className="text-4xl font-black mb-1 text-accent-200">1,980 ETB</div>
+                  <div className="text-brand-300 text-xs font-black uppercase tracking-widest">per session</div>
+                </div>
             </div>
-            <div className="md:w-3/5 p-10">
-                 <h4 className="font-bold text-stone-800 mb-4 flex items-center gap-2"><Star className="w-5 h-5 text-accent-500 fill-current" /> Premium Support</h4>
-                 <p className="text-stone-600 mb-8 leading-relaxed">You can book a private phone counseling session with ቻLu. This service is designed for those seeking immediate, professional guidance on personal matters, anxiety, relationships, or self-discovery.</p>
-                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                    <div className="flex items-center gap-3 text-sm text-stone-700"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Confidential & Secure</span></div>
-                    <div className="flex items-center gap-3 text-sm text-stone-700"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Flexible Scheduling</span></div>
-                    <div className="flex items-center gap-3 text-sm text-stone-700"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>1-on-1 Attention</span></div>
-                    <div className="flex items-center gap-3 text-sm text-stone-700"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Payment Confirmation Required</span></div>
+            <div className="md:w-3/5 p-10 flex flex-col justify-center">
+                 <h4 className="font-black text-stone-800 mb-4 flex items-center gap-2 uppercase tracking-tighter"><Star className="w-5 h-5 text-accent-500 fill-current" /> Premium Support</h4>
+                 <p className="text-stone-600 mb-8 leading-relaxed font-medium">You can book a private phone counseling session with ቻLu. This service is designed for those seeking immediate, professional guidance on personal matters, anxiety, relationships, or self-discovery.</p>
+                 <div className="grid sm:grid-cols-2 gap-y-4 gap-x-6 mb-10">
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Confidential & Secure</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Flexible Scheduling</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>1-on-1 Attention</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-brand-500" /> <span>Direct Support</span></div>
                  </div>
-                 <Button variant="accent" onClick={() => setPage('contact')} className="w-full md:w-auto">Book Appointment Now</Button>
+                 
+                 <div className="flex flex-col sm:flex-row gap-4">
+                   <a href="tel:0932229193" className="flex-1 bg-accent-600 text-white font-black text-xs uppercase tracking-widest py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:bg-accent-700 transition-all shadow-lg active:scale-95">
+                     <Phone className="w-4 h-4" /> Call 0932229193
+                   </a>
+                   <a href="https://t.me/Chalu_MailBot" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#229ED9] text-white font-black text-xs uppercase tracking-widest py-4 px-6 rounded-xl flex items-center justify-center gap-2 hover:bg-[#1d8dbf] transition-all shadow-lg active:scale-95">
+                     <Send className="w-4 h-4" /> Text us on Telegram
+                   </a>
+                 </div>
             </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl border border-stone-200 hover:border-accent-300 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-6 text-stone-600 group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><Users className="w-6 h-6" strokeWidth={1.5} /></div>
-                <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Group Sessions</h3>
-                <div className="flex items-center gap-2 text-sm text-stone-500 mb-4"><Clock className="w-4 h-4" /> 90 Minutes</div>
-                <p className="text-stone-600 mb-6">Small, facilitated groups focused on shared experiences such as grief, social anxiety, or mindfulness practice.</p>
-                <Button variant="outline" onClick={() => setPage('contact')} className="w-full">Inquire About Groups</Button>
+
+        {/* Free Classes Card */}
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-100 flex flex-col md:flex-row min-h-[400px]">
+            <div className="md:w-2/5 bg-[#229ED9] text-white p-10 flex flex-col justify-between relative overflow-hidden">
+                <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-sky-400 rounded-full opacity-30"></div>
+                <div className="relative z-10">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center mb-6">
+                      <Send className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-serif font-bold mb-2">Free Psychology Classes</h3>
+                    <p className="text-sky-50 mb-8 font-medium">Access high-quality psychological education at no cost.</p>
+                </div>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black mb-1 text-white uppercase tracking-tighter">Community</div>
+                  <div className="text-sky-100 text-xs font-black uppercase tracking-widest">Join 5,000+ members</div>
+                </div>
             </div>
-            <div className="bg-white p-8 rounded-xl border border-stone-200 hover:border-accent-300 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center mb-6 text-stone-600 group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors"><Lightbulb className="w-6 h-6" strokeWidth={1.5} /></div>
-                <h3 className="text-2xl font-serif font-bold text-stone-800 mb-3">Evaluation Tools</h3>
-                <div className="flex items-center gap-2 text-sm text-stone-500 mb-4"><Brain className="w-4 h-4" /> Self-Reflection</div>
-                <p className="text-stone-600 mb-6">Access various tools for psychological evaluation and self-reflection to help you better understand your personality structure.</p>
-                <Button variant="outline" onClick={() => setPage('contact')} className="w-full">Request Info</Button>
+            <div className="md:w-3/5 p-10 flex flex-col justify-center">
+                 <h4 className="font-black text-stone-800 mb-4 flex items-center gap-2 uppercase tracking-tighter"><Users className="w-5 h-5 text-[#229ED9]" /> Public Education</h4>
+                 <p className="text-stone-600 mb-8 leading-relaxed font-medium">Join ቻLu's psychology community on Telegram. We believe in making mental health knowledge accessible to everyone through free educational resources, digital handbooks, and community-led discussions.</p>
+                 <div className="grid sm:grid-cols-2 gap-y-4 gap-x-6 mb-10">
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-emerald-500" /> <span>Free PDF Handbooks</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-emerald-500" /> <span>Psychological Exercises</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-emerald-500" /> <span>Direct Resource Access</span></div>
+                    <div className="flex items-center gap-3 text-sm text-stone-700 font-bold"><CheckCircle className="w-5 h-5 text-emerald-500" /> <span>Community Support</span></div>
+                 </div>
+                 <Button 
+                   variant="primary" 
+                   onClick={() => window.open('https://t.me/chaluAssefa', '_blank')} 
+                   className="w-full md:w-auto bg-[#229ED9] hover:bg-[#1d8dbf] border-none py-4 px-10 rounded-xl font-black uppercase tracking-widest text-[11px]"
+                 >
+                   Get for free
+                 </Button>
             </div>
         </div>
       </div>

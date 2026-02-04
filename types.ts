@@ -1,4 +1,4 @@
-export type Page = 'home' | 'about' | 'classes' | 'services' | 'resources' | 'contact' | 'admin';
+export type Page = 'home' | 'about' | 'classes' | 'services' | 'resources' | 'contact' | 'admin' | 'blog';
 
 export interface BlogPost {
   id: number;

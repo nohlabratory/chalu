@@ -1,11 +1,29 @@
-
 import React from 'react';
 import { ArrowLeft, Users, Send, ArrowRight, Layers, Brain, Shield, Compass } from 'lucide-react';
 import { Page } from './types';
 import { Section, Heading } from './Common';
 
-const CourseCard = ({ title, description, price, level = "Class", icon: Icon, recommended = false }: { title: string; description: string; price: string; level?: string; icon: any; recommended?: boolean; }) => (
-    <div className={`group relative bg-white rounded-2xl p-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full ${recommended ? 'ring-2 ring-accent-400 shadow-lg' : 'shadow-soft border border-stone-100'}`}>
+const CourseCard = ({ 
+  title, 
+  description, 
+  price, 
+  level = "Class", 
+  icon: Icon, 
+  recommended = false,
+  onViewDetails
+}: { 
+  title: string; 
+  description: string; 
+  price: string; 
+  level?: string; 
+  icon: any; 
+  recommended?: boolean; 
+  onViewDetails: () => void;
+}) => (
+    <div 
+      onClick={onViewDetails}
+      className={`group cursor-pointer relative bg-white rounded-2xl p-1 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full ${recommended ? 'ring-2 ring-accent-400 shadow-lg' : 'shadow-soft border border-stone-100'}`}
+    >
         {recommended && <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent-600 text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest z-20 shadow-md">Most Popular</div>}
         <div className="bg-white rounded-xl p-6 flex flex-col h-full relative overflow-hidden z-10">
             <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-10 -mt-10 transition-colors duration-500 ${recommended ? 'bg-accent-50' : 'bg-stone-50 group-hover:bg-brand-50'}`}></div>
@@ -17,13 +35,17 @@ const CourseCard = ({ title, description, price, level = "Class", icon: Icon, re
             <p className="text-stone-600 text-sm leading-relaxed mb-8 flex-grow">{description}</p>
             <div className="pt-6 border-t border-stone-100">
                 <div className="flex items-end justify-between mb-4"><span className="text-sm text-stone-400">Tuition</span><span className="text-2xl font-bold text-brand-900">{price}</span></div>
-                <button className={`w-full py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${recommended ? 'bg-accent-600 text-white hover:bg-accent-700 shadow-md' : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800'}`}>View Details <ArrowRight className="w-4 h-4" /></button>
+                <button 
+                  className={`w-full py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${recommended ? 'bg-accent-600 text-white hover:bg-accent-700 shadow-md' : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800'}`}
+                >
+                  View Details <ArrowRight className="w-4 h-4" />
+                </button>
             </div>
         </div>
     </div>
 );
 
-export const ClassesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
+export const ClassesPage = ({ setPage, onShowJoinClasses }: { setPage: (p: Page) => void, onShowJoinClasses: () => void }) => (
   <div className="fade-in bg-stone-50">
     <div className="bg-[#1c2423] text-white py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-800 via-stone-900 to-transparent"></div>
@@ -65,10 +87,10 @@ export const ClassesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
            <div><span className="text-brand-600 font-bold tracking-wider text-xs uppercase mb-2 block">Curriculum</span><h2 className="text-3xl font-serif font-bold text-stone-800">Available Classes</h2></div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <CourseCard title="Personality Psychology" description="A comprehensive full class diving deep into the structures of personality types and formation." price="9,270 Birr" level="Full Program" icon={Layers} recommended={true} />
-            <CourseCard title="Depth Psychology" description="Explore the unconscious mind, dreams, and underlying psychological forces." price="3,700 Birr" level="Advanced" icon={Brain} />
-            <CourseCard title="Structural Psychology" description="Understanding the structural components of the human psyche and how they interact." price="3,700 Birr" level="Intermediate" icon={Shield} />
-            <CourseCard title="Existential Psychology" description="Confronting the ultimate concerns of life: death, freedom, isolation and meaning." price="3,700 Birr" level="Advanced" icon={Compass} />
+            <CourseCard title="Personality Psychology" description="A comprehensive full class diving deep into the structures of personality types and formation." price="9,270 Birr" level="Full Program" icon={Layers} recommended={true} onViewDetails={onShowJoinClasses} />
+            <CourseCard title="Depth Psychology" description="Explore the unconscious mind, dreams, and underlying psychological forces." price="3,700 Birr" level="Advanced" icon={Brain} onViewDetails={onShowJoinClasses} />
+            <CourseCard title="Structural Psychology" description="Understanding the structural components of the human psyche and how they interact." price="3,700 Birr" level="Intermediate" icon={Shield} onViewDetails={onShowJoinClasses} />
+            <CourseCard title="Existential Psychology" description="Confronting the ultimate concerns of life: death, freedom, isolation and meaning." price="3,700 Birr" level="Advanced" icon={Compass} onViewDetails={onShowJoinClasses} />
         </div>
     </Section>
   </div>

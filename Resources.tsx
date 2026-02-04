@@ -32,7 +32,7 @@ export const ResourcesPage = ({ setPage }: { setPage: (p: Page) => void }) => (
                     <h3 className="text-2xl font-bold text-brand-900 mb-2">ምን ሆኜ ነበር?</h3>
                     <span className="inline-block bg-accent-100 text-accent-800 text-xs font-bold px-3 py-1 rounded-full mb-4">Psychological Guide</span>
                     <p className="text-stone-700 text-base leading-relaxed mb-8 font-serif">ስላለፈው የህይወት ታሪክዎ ፍንትው ያለ ገፅታ የሚያገኙበት ፣ ከኋላ ታሪክዎ ጋር የሚታረቁበት።</p>
-                    <a href="https://t.me/ChaluAssefa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#229ED9] hover:bg-[#1d8dbf] text-white px-6 py-3 rounded-lg font-bold transition-all shadow-md hover:shadow-lg"><Send className="w-5 h-5" /> Download on Telegram</a>
+                    <a href="https://t.me/ChaluAssefa/36" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#229ED9] hover:bg-[#1d8dbf] text-white px-6 py-3 rounded-lg font-bold transition-all shadow-md hover:shadow-lg"><Send className="w-5 h-5" /> Download on Telegram</a>
                     </div>
                 </div>
                 <div className="bg-brand-50/50 border border-brand-100 rounded-xl p-8 flex flex-col sm:flex-row gap-8 items-start shadow-sm hover:shadow-md transition-shadow group">
